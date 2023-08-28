@@ -9,7 +9,7 @@
 npm install
 
 # Compiles <!--and hot-reloads for development-->
-npx ts-node app/app.ts
+npx ts-node src/app.ts
 
 # Compiles and minifies for production
 
