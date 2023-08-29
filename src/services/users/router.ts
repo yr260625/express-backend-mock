@@ -13,10 +13,10 @@ UserRouter.get('/users', (_, res, next) => {
 });
 
 UserRouter.get('/users/:user_id', (req, res, next) => {
-  const user_id = req.params.user_id;
+  const userId = req.params.user_id;
   const service = new UserRepository();
   service
-    .fetchById(user_id)
+    .fetchById(userId)
     .then((result: any) => res.status(200).send(result))
     .catch(next);
 });

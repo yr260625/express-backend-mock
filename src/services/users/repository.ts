@@ -170,15 +170,15 @@ const allUsers = [
 ];
 
 export class UserRepository {
-  public async fetchAll(): Promise<{ [key: string]: Array<User> }> {
+  public async fetchAll(): Promise<Record<string, User[]>> {
     return {
       users: allUsers,
     };
   }
 
-  public async fetchById(id: string): Promise<{ [key: string]: User | void }> {
+  public async fetchById(id: string): Promise<Record<string, User | undefined>> {
     return {
-      user: allUsers.find((user) => user.id == Number(id)),
+      user: allUsers.find((user) => user.id === Number(id)),
     };
   }
 }

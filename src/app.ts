@@ -12,7 +12,7 @@ app.use(cors());
 // body-parserの設定
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const port = process.env.PORT || 3000; // port番号を指定
+const port = 3000;
 
 // ルーティング設定
 app.use('/', Router);
