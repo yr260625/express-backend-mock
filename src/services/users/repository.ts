@@ -1,5 +1,5 @@
 // インターフェース
-export type User = {
+export interface User {
   id: number;
   name: string;
   username: string;
@@ -13,7 +13,7 @@ export type User = {
   phone: string;
   website: string;
   bloodType: string;
-};
+}
 
 // テスト用全ユーザー
 const allUsers = [
