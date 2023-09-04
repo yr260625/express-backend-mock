@@ -17,8 +17,9 @@ connectDB
   .initialize()
   .then(() => {
     // サーバ起動
-    app.listen(process.env.PORT);
-    console.log('listen on port ' + process.env.PORT);
+    const port = process.env.PORT ?? '3000';
+    app.listen(port);
+    console.log('listen on port ' + port);
   })
   .catch((error) => {
     console.error(`Data Source initialization error`, error);

@@ -6,11 +6,9 @@
   "scripts": {
     "tsc": "tsc",
     "lint": "eslint src/**/*.ts",
-    "clean": "rimraf dist",
     "typeorm": "typeorm-ts-node-commonjs",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --files src/app.ts",
-    "build": "npm-run-all clean tsc",
-    "start": "node dist/app.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn src/app.ts",
+    "start": "ts-node -r tsconfig-paths/register src/app.ts",
     "local-start": "env-cmd -f .env npm run dev"
   },
   "keywords": [],
@@ -27,6 +25,7 @@
     "mongoose": "^7.4.5",
     "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.9.1",
     "typeorm": "^0.3.17"
   },
   "devDependencies": {
@@ -41,10 +40,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^39.0.0",
     "eslint-plugin-import": "^2.28.1",
-    "npm-run-all": "^4.1.5",
     "prettier": "^3.0.2",
-    "rimraf": "^5.0.1",
-    "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
