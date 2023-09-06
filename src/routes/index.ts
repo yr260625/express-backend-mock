@@ -5,6 +5,10 @@ import { UserUsecase } from 'src/services/users/usecase';
 // ルーティング設定
 export const Router = express.Router();
 
+Router.get('/', (_, res) => {
+  res.status(200).send('hello');
+});
+
 // Users ルーティング設定
 Router.get('/users', (_, res, next) => {
   const service = new UserUsecase();

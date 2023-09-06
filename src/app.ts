@@ -12,14 +12,16 @@ app.use(cors());
 // ルーティング設定
 app.use('/', Router);
 
+// サーバ起動
+const port = process.env.PORT ?? '3000';
+app.listen(port);
+console.log('listen on port ' + port);
+
 // DB接続
 connectDB
   .initialize()
   .then(() => {
-    // サーバ起動
-    const port = process.env.PORT ?? '3000';
-    app.listen(port);
-    console.log('listen on port ' + port);
+    console.log(`Data Source initialization`);
   })
   .catch((error) => {
     console.error(`Data Source initialization error`, error);
