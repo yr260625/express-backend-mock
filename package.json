@@ -5,12 +5,21 @@
   "main": "build/app.js",
   "scripts": {
     "lint": "eslint src/**/*.ts",
-    "typeorm": "typeorm-ts-node-commonjs",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn src/app.ts",
     "start": "node dist/app.js",
     "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+    "typeorm": "env-cmd -f .env typeorm-ts-node-commonjs -d src/data-source.ts",
+    "migration:gen": "npm run typeorm migration:generate",
+    "migration:run": "npm run typeorm migration:run",
+    "migration:revert": "npm run typeorm migration:revert",
+    "migration:show": "npm run typeorm migration:show",
     "local-start": "env-cmd -f .env.local npm run dev",
-    "local-build": "npm run build && env-cmd -f .env npm start"
+    "local-run": "npm run build && env-cmd -f .env npm start",
+    "local-typeorm": "env-cmd -f .env.local typeorm-ts-node-commonjs -d src/data-source.ts",
+    "local-migration:gen": "npm run local-typeorm migration:generate",
+    "local-migration:run": "npm run local-typeorm migration:run",
+    "local-migration:revert": "npm run local-typeorm migration:revert",
+    "local-migration:show": "npm run local-typeorm migration:show"
   },
   "keywords": [],
   "author": "",
