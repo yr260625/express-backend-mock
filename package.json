@@ -4,12 +4,13 @@
   "description": "",
   "main": "build/app.js",
   "scripts": {
-    "tsc": "tsc",
     "lint": "eslint src/**/*.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn src/app.ts",
-    "start": "ts-node -r tsconfig-paths/register src/app.ts",
-    "local-start": "env-cmd -f .env npm run dev"
+    "start": "node dist/app.js",
+    "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+    "local-start": "env-cmd -f .env.local npm run dev",
+    "local-build": "npm run build && env-cmd -f .env npm start"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
     "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.7",
     "typeorm": "^0.3.17"
   },
   "devDependencies": {

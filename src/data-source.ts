@@ -10,7 +10,7 @@ export const connectDB = new DataSource({
   database: process.env.DB_DATABASE,
   synchronize: false,
   logging: false,
-  entities: ['src/entities/*.ts'],
-  migrations: ['src/db/migrations/*.ts'],
-  subscribers: [],
+  entities: [String(process.env.DB_ENTITIES_DIR)],
+  migrations: [String(process.env.DB_MIGRATION_DIR)],
+  subscribers: [String(process.env.DB_SUBSCRIBERS_DIR)],
 });
