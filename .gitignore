@@ -30,4 +30,4 @@ dist-ssr
 coverage
 
 # env
-.env
+.env*
